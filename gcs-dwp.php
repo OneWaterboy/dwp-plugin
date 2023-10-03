@@ -14,16 +14,14 @@
 include_once 'dwp-functions.php';
 
 
-/**
- * Add menu page called DWP to the admin menu.
- */
-function builder_add_dwp_menu_page(){
+// Create main menu item for DWP plugin
+function builder_add_dwp_menu() {
     add_menu_page(
-      'DWP',
+      'DWP', 
       'DWP',
       'manage_options',
       'dwp-plugin',
-      'builder_render_admin_page',
+      'builder_add_dwp_menu',
       plugin_dir_url(__FILE__) . '/assets/images/social-media.png',
       80 
     );
@@ -34,7 +32,7 @@ function builder_add_dwp_menu_page(){
 
   
   // Create sub menu items for Admin Versions of Posts under DWP Menu Item
-  function builder_add_submenu_pages() {
+  function builder_add_social_posts_submenu() {
     add_submenu_page(
       'dwp-plugin', 
       'Social Posts', 
@@ -42,41 +40,5 @@ function builder_add_dwp_menu_page(){
       'manage_options', 
       'edit.php?post_type=social_posts_admin'
     );
-
-    add_submenu_page(
-        'dwp-plugin', 
-        'Emailers', 
-        'Emailers', 
-        'manage_options', 
-        'edit.php?post_type=emailers_admin'
-      );
   }
-  add_action('admin_menu', 'builder_add_submenu_pages');
-
-  // Render the admin page for the custom item
-function builder_render_admin_page() {
-    ?>
-    <div class="wrap">
-        <div class="content-types">
-            <div class="edit-post-type">
-                <div class="post-type-box">
-                    <img src="<?php echo plugin_dir_url(__FILE__) . '/assets/images/social-media-color.png'; ?>">
-                    <div class="post-type-link"></div>
-                </div>
-            </div>
-            <div class="edit-post-type">
-                <div class="post-type-box">
-                    <img src="">
-                    <div class="post-type-link"></div>
-                </div>
-            </div>
-            <div class="edit-post-type">
-                <div class="post-type-box">
-                    <img src="">
-                    <div class="post-type-link"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <?php
-}
+  add_action('admin_menu', 'builder_add_social_posts_submenu');
