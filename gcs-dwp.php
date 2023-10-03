@@ -48,6 +48,14 @@ function builder_add_dwp_menu() {
         'manage_options', 
         'edit.php?post_type=emailers_admin'
       );
+
+      add_submenu_page(
+        'dwp-plugin', 
+        'content', 
+        'Content', 
+        'manage_options', 
+        'edit.php?post_type=content_admin'
+      );
   }
   add_action('admin_menu', 'builder_add_submenu_pages');
 
@@ -65,13 +73,13 @@ function builder_render_admin_page() {
             <div class="post-type">
                 <img src="<?php echo plugin_dir_url(__FILE__) . '/assets/images/email.png'; ?>">
                 <div class="edit-post-type-link">
-                    <a href="">Edit Emailers</a>
+                    <a href="/wp-admin/edit.php?post_type=emailers_admin">Edit Emailers</a>
                 </div>
             </div>
             <div class="post-type">
                 <img src="<?php echo plugin_dir_url(__FILE__) . '/assets/images/season.png'; ?>">
                 <div class="edit-post-type-link">
-                    <a href="">Edit Articles</a></div>
+                    <a href="/wp-admin/edit.php?post_type=content_admin">Edit Articles</a></div>
             </div>
         </div>
     </div>
