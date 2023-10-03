@@ -12,7 +12,6 @@
 
 
 include_once 'dwp-functions.php';
-include_once 'custom-post-types/admin-post-types.php';
 
 
 // Create main menu item for DWP plugin
@@ -27,7 +26,10 @@ function builder_add_dwp_menu() {
       80 
     );
   }
+
   add_action('admin_menu', 'builder_add_dwp_menu');
+
+
   
   // Create sub menu items for Admin Versions of Posts under DWP Menu Item
   function builder_add_social_posts_submenu() {
