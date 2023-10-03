@@ -11,24 +11,27 @@
 **/
 
 
+include_once 'dwp-functions.php';
+
+
 /**
  * Add menu page called DWP to the admin menu.
  */
-function cwpai_add_dwp_menu_page(){
+function builder_add_dwp_menu_page(){
     add_menu_page(
       'DWP',
       'DWP',
       'manage_options',
       'dwp',
-      'cwpai_dwp_menu_page_callback',
+      'builder_dwp_menu_page_callback',
       plugin_dir_url( __FILE__ ) . "assets/images/social-media.png"
     );
   }
-  add_action('admin_menu', 'cwpai_add_dwp_menu_page');
+  add_action('admin_menu', 'builder_add_dwp_menu_page');
   
   /**
    * Callback function for the DWP menu page.
    */
-  function cwpai_dwp_menu_page_callback(){
+  function builder_dwp_menu_page_callback(){
     // Add code here to display the content of the DWP menu page
   }
