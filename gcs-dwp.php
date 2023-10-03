@@ -12,26 +12,31 @@
 
 
 include_once 'dwp-functions.php';
+include_once 'custom-post-types/admin-post-types.php';
 
 
-/**
- * Add menu page called DWP to the admin menu.
- */
-function builder_add_dwp_menu_page(){
+// Create main menu item for DWP plugin
+function builder_add_dwp_menu() {
     add_menu_page(
-      'DWP',
+      'DWP', 
       'DWP',
       'manage_options',
-      'dwp',
-      'builder_dwp_menu_page_callback',
-      plugin_dir_url( __FILE__ ) . "assets/images/social-media.png"
+      'dwp-plugin',
+      'builder_add_dwp_menu',
+      plugin_dir_url(__FILE__) . '/assets/images/social-media.png',
+      80 
     );
   }
-  add_action('admin_menu', 'builder_add_dwp_menu_page');
+  add_action('admin_menu', 'builder_add_dwp_menu');
   
-  /**
-   * Callback function for the DWP menu page.
-   */
-  function builder_dwp_menu_page_callback(){
-    // Add code here to display the content of the DWP menu page
+  // Create sub menu items for Admin Versions of Posts under DWP Menu Item
+  function builder_add_social_posts_submenu() {
+    add_submenu_page(
+      'dwp-plugin', 
+      'Social Posts', 
+      'Social Posts', 
+      'manage_options', 
+      'edit.php?post_type=social_posts_admin'
+    );
   }
+  add_action('admin_menu', 'builder_add_social_posts_submenu');
