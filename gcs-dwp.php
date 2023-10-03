@@ -32,7 +32,7 @@ function builder_add_dwp_menu() {
 
   
   // Create sub menu items for Admin Versions of Posts under DWP Menu Item
-  function builder_add_social_posts_submenu() {
+  function builder_add_submenu_pages() {
     add_submenu_page(
       'dwp-plugin', 
       'Social Posts', 
@@ -40,5 +40,13 @@ function builder_add_dwp_menu() {
       'manage_options', 
       'edit.php?post_type=social_posts_admin'
     );
+
+    add_submenu_page(
+        'dwp-plugin', 
+        'Emailers', 
+        'Emailers', 
+        'manage_options', 
+        'edit.php?post_type=emailers_admin'
+      );
   }
-  add_action('admin_menu', 'builder_add_social_posts_submenu');
+  add_action('admin_menu', 'builder_add_submenu_pages');
