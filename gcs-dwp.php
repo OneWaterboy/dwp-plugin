@@ -21,7 +21,7 @@ function builder_add_dwp_menu() {
       'DWP',
       'manage_options',
       'dwp-plugin',
-      'builder_add_dwp_menu',
+      'builder_render_admin_page',
       plugin_dir_url(__FILE__) . '/assets/images/social-media.png',
       80 
     );
@@ -42,3 +42,30 @@ function builder_add_dwp_menu() {
     );
   }
   add_action('admin_menu', 'builder_add_social_posts_submenu');
+
+  // Render the admin page for the custom item
+function builder_render_admin_page() {
+    ?>
+    <div class="wrap" id="builderAdmin">
+        <div class="post-type-edit-boxes">
+            <div class="post-type">
+                <img src="<?php echo plugin_dir_url(__FILE__) . '/assets/images/social-media-color.png'; ?>">
+                <div class="edit-post-type-link">
+                <a href="/wp-admin/edit.php?post_type=social_posts_admin">Edit Social Posts</a>
+                </div>
+            </div>
+            <div class="post-type">
+                <img src="<?php echo plugin_dir_url(__FILE__) . '/assets/images/email.png'; ?>">
+                <div class="edit-post-type-link">
+                    <a href="">Edit Emailers</a>
+                </div>
+            </div>
+            <div class="post-type">
+                <img src="<?php echo plugin_dir_url(__FILE__) . '/assets/images/season.png'; ?>">
+                <div class="edit-post-type-link">
+                    <a href="">Edit Articles</a></div>
+            </div>
+        </div>
+    </div>
+    <?php
+}

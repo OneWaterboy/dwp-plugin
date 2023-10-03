@@ -53,5 +53,3 @@ function builder_admin_social() {
 
 }
 add_action( 'init', 'builder_admin_social', 0 );
-
-// edit.php?post_type=social_posts_admin
